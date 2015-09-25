@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<?xml version="1.0"?><!--
 /**
  * Magento
  *
@@ -33,72 +32,20 @@
     </modules>
 
     <global>
-    	<models>
-			<mediamock>
-				<class>SchumacherFM_Mediamock_Model</class>
-			</mediamock>
-			<catalog>
-				<rewrite>
-					<product_image>SchumacherFM_Mediamock_Model_Image</product_image>
-				</rewrite>
-			</catalog>
-    	</models>
+        <models>
+            <mediamock>
+                <class>SchumacherFM_Mediamock_Model</class>
+            </mediamock>
+            <catalog>
+                <rewrite>
+                    <product_image>SchumacherFM_Mediamock_Model_Image</product_image>
+                </rewrite>
+            </catalog>
+        </models>
         <helpers>
             <mediamock>
                 <class>SchumacherFM_Mediamock_Helper</class>
             </mediamock>
-            <catalog>
-                <rewrite>
-                    <image>SchumacherFM_Mediamock_Helper_Image</image>
-                </rewrite>
-            </catalog>
         </helpers>
-		<events>
-			<controller_front_init_before>
-				<observers>
-					<mediamock>
-						<type>singleton</type>
-						<class>mediamock/observer</class>
-						<method>controllerFrontInitBefore</method>
-					</mediamock>
-				</observers>
-			</controller_front_init_before>
-		</events>
     </global>
-
-	<adminhtml>
-        <translate>
-            <modules>
-                <SchumacherFM_Mediamock>
-                     <files>
-                          <default>SchumacherFM_Mediamock.csv</default>
-                     </files>
-                </SchumacherFM_Mediamock>
-            </modules>
-        </translate>
-	</adminhtml>
-
-    <phpunit>
-        <suite>
-            <modules>
-                <SchumacherFM_Mediamock/>
-            </modules>
-        </suite>
-    </phpunit>
-
-    <default>
-    	<catalog>
-    		<mediamock>
-    			<disable_ext>0</disable_ext>
-    			<map>%requestHost-%manufacturer-%sku</map>
-    			<unique>1</unique>
-    			<lowercase>0</lowercase>
-                <hash_image_folder_name>0</hash_image_folder_name>
-                <generate_labels>0</generate_labels>
-                <use_filename_map_for_labels>1</use_filename_map_for_labels>
-                <label_map>%name %sku</label_map>
-    		</mediamock>
-    	</catalog>
-    </default>
 </config>
-
